@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "298075289008",
+    "project_id": "barcelona-players",
+    "storage_bucket": "barcelona-players.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:298075289008:android:3480faba5c8a3311cc1275",
+        "android_client_info": {
+          "package_name": "com.spidey_children.barcelonaplayers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "298075289008-bti0mrkgt01qnb25o097m25741n7f6be.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPtjaNCjAZTxQqOEJcnP4k3Pp5iBYLXCM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "298075289008-bti0mrkgt01qnb25o097m25741n7f6be.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
