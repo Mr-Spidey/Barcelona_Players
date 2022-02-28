@@ -9,7 +9,7 @@ import com.spidey_children.barcelonaplayers.screen.PlayerScreen
 import com.spidey_children.barcelonaplayers.screen.Screen
 
 fun NavGraphBuilder.playerNavGraph(
-    navHostController: NavHostController,
+//    navHostController: NavHostController,
     viewModel: BarcelonaViewModel
 ){
     navigation(startDestination = Screen.Player.route, route = "playerNavGraph"){

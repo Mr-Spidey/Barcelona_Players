@@ -19,6 +19,6 @@ fun NavGraph(
         startDestination = "playerNavGraph",
         modifier = Modifier.padding(padding)
     ) {
-        playerNavGraph(navHostController = navHostController, viewModel = viewModel)
+        playerNavGraph(viewModel = viewModel)
     }
 }
