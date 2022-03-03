@@ -10,7 +10,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
-import com.spidey_children.barcelonaplayers.navigation.RootNavGraph
+import com.spidey_children.barcelonaplayers.navigation.SplashNavGraph
 import com.spidey_children.barcelonaplayers.ui.theme.BarcelonaPlayersTheme
 
 @ExperimentalAnimationApi
@@ -26,7 +26,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colors.background
                 ) {
                     val rootNavHostController = rememberNavController()
-                    RootNavGraph(navHostController = rootNavHostController, viewModel = viewModel)
+                    SplashNavGraph(navHostController = rootNavHostController, viewModel = viewModel)
                 }
             }
         }

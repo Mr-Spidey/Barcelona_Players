@@ -14,6 +14,10 @@ class BarcelonaViewModel : ViewModel() {
     private val db = Firebase.firestore
     var playerList by mutableStateOf(listOf<Player>())
 
+    var showTopAndBottomBar by mutableStateOf(true)
+
+    var sortPlayerListFlag by mutableStateOf(0)
+
     fun getPlayerList() {
         val collection = db.collection("players").orderBy("positionNum").orderBy("number")
         collection.addSnapshotListener { snapshot, _ ->

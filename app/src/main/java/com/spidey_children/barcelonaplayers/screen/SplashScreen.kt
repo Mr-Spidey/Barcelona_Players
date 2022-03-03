@@ -32,7 +32,7 @@ fun SplashScreen(navHostController: NavHostController, viewModel: BarcelonaViewM
         visible1 = true
         delay(1000)
         visible2 = true
-        delay(1500)
+        delay(1000)
         navHostController.popBackStack()
         navHostController.navigate(navRouteToHome)
     }

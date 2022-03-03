@@ -12,7 +12,7 @@ import com.spidey_children.barcelonaplayers.screen.SplashScreen
 
 @ExperimentalAnimationApi
 @Composable
-fun RootNavGraph(
+fun SplashNavGraph(
     navHostController: NavHostController,
     viewModel: BarcelonaViewModel
 ) {

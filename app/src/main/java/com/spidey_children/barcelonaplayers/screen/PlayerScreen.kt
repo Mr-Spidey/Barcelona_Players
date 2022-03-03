@@ -8,7 +8,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
@@ -16,21 +16,37 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.spidey_children.barcelonaplayers.BarcelonaViewModel
+import com.spidey_children.barcelonaplayers.data.Player
 
 @Composable
-fun PlayerScreen(viewModel: BarcelonaViewModel) {
-    val playerList = viewModel.playerList
+fun PlayerScreen(viewModel: BarcelonaViewModel, navHostController: NavHostController) {
+    var playerList by remember { mutableStateOf(viewModel.playerList) }
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         LazyColumn(
             verticalArrangement = Arrangement.spacedBy(2.dp),
             contentPadding = PaddingValues(2.dp)
         ) {
+            playerList = when (viewModel.sortPlayerListFlag) {
+                1 -> {
+                    playerList.sortedBy { it.number }
+                }
+                2 -> {
+                    playerList.sortedBy { it.name }
+                }
+                else -> {
+                    playerList
+                        .sortedWith(compareBy<Player> { it.positionNum }.thenBy { it.number })
+                }
+            }
             items(playerList) {
                 PlayerItem(
                     number = it.number.toInt().toString(),
                     name = it.name,
-                    position = it.position
+                    position = it.position,
+                    navHostController = navHostController
                 )
             }
         }
@@ -38,11 +54,18 @@ fun PlayerScreen(viewModel: BarcelonaViewModel) {
 }
 
 @Composable
-fun PlayerItem(number: String, name: String, position: String) {
+fun PlayerItem(
+    number: String,
+    name: String,
+    position: String,
+    navHostController: NavHostController
+) {
     Card(
         modifier = Modifier
             .wrapContentHeight()
-            .clickable { },
+            .clickable {
+                navHostController.navigate(route = Screen.PlayerDetail.route + "/$name")
+            },
         elevation = 4.dp,
         shape = RoundedCornerShape(25)
     ) {
@@ -81,5 +104,11 @@ fun PlayerItem(number: String, name: String, position: String) {
 @Preview(showBackground = true)
 @Composable
 fun PlayerItemPreview() {
-    PlayerItem(number = "25", name = "ピエール・エメリク・オーバメヤン", position = "FW")
+    val navHostController = rememberNavController()
+    PlayerItem(
+        number = "25",
+        name = "ピエール・エメリク・オーバメヤン",
+        position = "FW",
+        navHostController = navHostController
+    )
 }
