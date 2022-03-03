@@ -1,5 +1,5 @@
 # Barcelona_Players
-FCバルセロナの選手一覧を表示するアプリケーション
+FCバルセロナの選手一覧を表示する簡単なアプリケーション
 
 ## Jetpack Composeの使用
 Jetpack Composeを使用したアプリケーションです。
@@ -9,10 +9,9 @@ Jetpack Composeを使用したアプリケーションです。
 - Composeを使用したナビゲーション（アニメーションを追加、下部ナビゲーションバーとの統合）
   - マテリアルデザインの原則として、目的地が3つ未満の場合、下部ナビゲーションバーは推奨されていません（詳しくは[こちら](https://material.io/components/bottom-navigation#usage)）が、
     今回はどうしても実装したかったので使用しています。
-
 - [マテリアルコンポーネント](https://material.io/components?platform=android)を使用したレイアウト
-
 - ViewModelを用いた状態管理
+- データベースとしてFirebaseのCloud Firestoreを使用
 
 などが挙げられます。
 
